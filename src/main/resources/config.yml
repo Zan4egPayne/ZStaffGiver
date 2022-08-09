@@ -1,0 +1,114 @@
+#==============================
+#        ZStaffGiver
+#   Plugin created by Zan4eg
+#  https://vk.com/zan4egpayne
+#==============================
+
+# staff give <player> <group> // zstaff.use
+# staff take <player> // zstaff.use
+# report <player> <reasone> // zstaff.report.imune
+# sw check <player> <group> // zstaff.sw.check
+# sw start/stop // zstaff.sw.use
+
+settings:
+  hide_tips: false
+  peerID: 2000000003
+
+events:
+  EntityDamageByEntityEvent: true
+  PlayerPickupItemEvent: true
+  InventoryClickEvent: true
+  PlayerQuitEvent: true
+
+cmd_groups_give: "lp user {user} parent set {group}"
+cmd_groups_take: "lp user {user} parent set default"
+
+groups:
+  helper:
+    prefix: "ХЕЛПЕР"
+    group: "offhelper"
+  sthelper:
+    prefix: "СТ.ХЕЛПЕР"
+    group: "offsthelper"
+  mlmoder:
+    prefix: "МЛ.МОДЕР"
+    group: "offmlmoder"
+  moder:
+    prefix: "МОДЕР"
+    group: "offmoder"
+  stmoder:
+    prefix: "СТ.МОДЕР"
+    group: "offstmoder"
+
+message:
+  no_cmd: "&d&lZSTAFFGIVER &7▸ &fУкажите вариацию команды!"
+  confirm_give: "&d&lZSTAFFGIVER &7▸ &fПрава успешно выданы!"
+  confirm_take: "&d&lZSTAFFGIVER &7▸ &fПрава успешно сняты!"
+  no_arguments: "&d&lZSTAFFGIVER &7▸ &fНе достаточно аргументов!"
+  give_msg: "&d&lZSTAFFGIVER &7▸ &fПоздравляем, у нас новый {prefix}&f! Его зовут &7{user}"
+  no_permission: "&d&lZSTAFFGIVER &7▸ &fНе достаточно прав!"
+  no_console: "&d&lZSTAFFGIVER &7▸ &fКоманду с консоли вводить запрещено!"
+
+Reports:
+  messages:
+    noargs: "&d&lZSTAFFGIVER &7▸ &f/report [ник] [причина] &a - подать жалобу на игрока"
+    minSimNick: "&d&lZSTAFFGIVER &7▸ &fМинимальная длина ника 4 символа"
+    maxSimNick: "&d&lZSTAFFGIVER &7▸ &fМаксимальная длина ника 16 символов"
+    imunnitet: "&d&lZSTAFFGIVER &7▸ &fВы не можете подать жалобу на данного игрока!"
+    sender_instanceof_player: "&d&lZSTAFFGIVER &7▸ &fВы не можете на самого себя подать репорт!"
+    minReason: "&d&lZSTAFFGIVER &7▸ &fУкажите длиннее причину репорта!"
+    successful_send_report: "&d&lZSTAFFGIVER &7▸ &fВы успешно отправили репорт на игрока &c%target% &fпо причине: &a{reason}"
+    cooldown_report_command: "&d&lZSTAFFGIVER &7▸ &fДля след. отправки репорта подождите &c{time}"
+    all_ping: "&d&lZSTAFFGIVER &7▸ &fМне кажется или ты слишком умный для нашего мира -_-!"
+
+  peerID: 2000000001
+  server: "Гриферский"
+  cooldown: "2m"
+
+StaffWork:
+  messages:
+    more_arg: "&d&lZSTAFFGIVER &7▸ &fВ этой команде запрещено использовать любые аргументы"
+    no_player: "&d&lZSTAFFGIVER &7▸ &fИгрока нет на сервере"
+    group_true: "&d&lZSTAFFGIVER &7▸ &fУ этого игрока есть группа &7{group}"
+    group_false: "&d&lZSTAFFGIVER &7▸ &fУ этого игрока нет группы &7{group}"
+    no_permission_check: "&d&lZSTAFFGIVER &7▸ &fНе достаточно прав!"
+    no_permission_staffwork: "&d&lZSTAFFGIVER &7▸ &fНе достаточно прав!"
+    check_op: "&d&lZSTAFFGIVER &7▸ &fИспользовать эту команду от имени оператора - запрещено!"
+    start_msg: "&d&lZSTAFFGIVER &7▸ &fВы начали работу!"
+    stop_msg: "&d&lZSTAFFGIVER &7▸ &fВы закончили работу!"
+    no_start: "&d&lZSTAFFGIVER &7▸ &fВы уже начали работать!"
+    no_stop: "&d&lZSTAFFGIVER &7▸ &fВы ещё не начинали работать!"
+
+  groups:
+    helper:
+      group: "helper"
+      offgroup: "offhelper"
+    sthelper:
+      group: "sthelper"
+      offgroup: "offsthelper"
+    mlmoder:
+      group: "mlmoder"
+      offgroup: "offmlmoder"
+    moder:
+      group: "moder"
+      offgroup: "offmoder"
+    stmoder:
+      group: "stmoder"
+      offgroup: "offstmoder"
+
+  offgroups:
+    offhelper:
+      group: "helper"
+      offgroup: "offhelper"
+    offsthelper:
+      group: "sthelper"
+      offgroup: "offsthelper"
+    offmlmoder:
+      group: "mlmoder"
+      offgroup: "offmlmoder"
+    offmoder:
+      group: "moder"
+      offgroup: "offmoder"
+    offstmoder:
+      group: "stmoder"
+      offgroup: "offstmoder"

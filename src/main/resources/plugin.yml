@@ -1,0 +1,13 @@
+name: ZStaffGiver
+version: '${project.version}'
+main: ru.zan4eg.zstaffgiver.ZStaffGiver
+api-version: 1.19
+authors: [ zan4eg ]
+website: https://vk.com/zan4egpayne
+commands:
+  staff:
+    description: Управление составом
+  report:
+    description: Кинуть репорт на игрока
+  sw:
+    description: Управлять режимом состава
